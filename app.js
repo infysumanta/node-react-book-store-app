@@ -6,6 +6,7 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const app = express();
 const config = require("./config");
 const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 // Middleware
 app.use(express.json()); // middleware for json body handler
@@ -19,6 +20,7 @@ if (config.NODE_ENV === "production") {
 
 // Configure all the Route
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 
 // Error Middleware
 app.use(notFound); //404 Error Handler Middleware
