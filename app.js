@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const app = express();
 const config = require("./config");
-const userRoutes = require("./routes/userRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 // Middleware
 app.use(express.json()); // middleware for json body handler
@@ -18,7 +18,7 @@ if (config.NODE_ENV === "production") {
 }
 
 // Configure all the Route
-app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 // Error Middleware
 app.use(notFound); //404 Error Handler Middleware
