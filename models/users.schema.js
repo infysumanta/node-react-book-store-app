@@ -54,7 +54,7 @@ userSchema.methods.comparePassword = async function (password) {
 userSchema.methods.getJWTToken = async function () {
   return jwt.sign(
     {
-      userId: this._id,
+      id: this._id,
       name: this.name,
       email: this.email,
     },
