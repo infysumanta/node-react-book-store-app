@@ -7,6 +7,7 @@ const app = express();
 const config = require("./config");
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 // Middleware
 app.use(express.json()); // middleware for json body handler
@@ -19,7 +20,11 @@ if (config.NODE_ENV === "production") {
 }
 
 // Configure all the Route
+// Frontend Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+
+// Admin Routes
 app.use("/api/admin", adminRoutes);
 
 // Error Middleware
