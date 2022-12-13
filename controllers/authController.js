@@ -69,3 +69,10 @@ exports.login = asyncHandler(async (req, res) => {
     message: "Invalid Credentials!",
   });
 });
+
+exports.authVerifyUser = asyncHandler(async (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Token Verified Successfully",
+  });
+});

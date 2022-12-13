@@ -4,6 +4,7 @@ const compression = require("compression");
 const morgan = require("morgan");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const app = express();
+const path = require("path");
 const config = require("./config");
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
@@ -26,6 +27,12 @@ app.use("/api/products", productRoutes);
 
 // Admin Routes
 app.use("/api/admin", adminRoutes);
+
+// Frontend Routes
+app.use(express.static(path.resolve(__dirname, "client", "build")));
+app.get("*", (_, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 // Error Middleware
 app.use(notFound); //404 Error Handler Middleware
