@@ -7,6 +7,11 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import ProtectedRoutes from "./components/auth/ProtectedRoutes";
+import Layouts from "./components/admin/Layouts";
+import UserListPage from "./pages/AdminPage/User/UserListPage";
+import ProductListPage from "./pages/AdminPage/Product/ProductListPage";
+import ProductEntryPage from "./pages/AdminPage/Product/ProductEntryPage";
+import ProductDetailsPage from "./pages/AdminPage/Product/ProductDetailsPage";
 const App = () => {
   return (
     <>
@@ -27,9 +32,30 @@ const App = () => {
           </FrontendLayout>
         </Route>
         <Route path="/admin" exact>
-          <ProtectedRoutes>
+          <AdminPanel>
             <AdminPage />
-          </ProtectedRoutes>
+          </AdminPanel>
+        </Route>
+
+        <Route path="/admin/products" exact>
+          <AdminPanel>
+            <ProductListPage />
+          </AdminPanel>
+        </Route>
+        <Route path="/admin/products/create" exact>
+          <AdminPanel>
+            <ProductEntryPage />
+          </AdminPanel>
+        </Route>
+        <Route path="/admin/products/:id" exact>
+          <AdminPanel>
+            <ProductDetailsPage />
+          </AdminPanel>
+        </Route>
+        <Route path="/admin/users" exact>
+          <AdminPanel>
+            <UserListPage />
+          </AdminPanel>
         </Route>
       </Switch>
     </>
@@ -42,6 +68,16 @@ const FrontendLayout = ({ children }) => {
       <Header />
       {children}
       <Footer />
+    </>
+  );
+};
+
+const AdminPanel = ({ children }) => {
+  return (
+    <>
+      <ProtectedRoutes>
+        <Layouts>{children}</Layouts>
+      </ProtectedRoutes>
     </>
   );
 };

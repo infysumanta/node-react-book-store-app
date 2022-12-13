@@ -47,7 +47,6 @@ export const register = async (data) => {
 export const authVerifyUser = async () => {
   try {
     const { data } = await apiClient.post("/auth/auth-verify");
-    console.log(data);
     if (!data.success) {
       logout();
     }

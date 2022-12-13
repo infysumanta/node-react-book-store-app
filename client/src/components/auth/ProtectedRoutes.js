@@ -5,7 +5,6 @@ import { authVerifyUser, logout } from "../../api";
 const ProtectedRoutes = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem(Constant.ECOM_USER_TOKEN);
-    console.log(token);
     if (!token) {
       logout();
     } else {

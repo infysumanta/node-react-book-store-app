@@ -10,7 +10,6 @@ export const authActions = (dispatch) => {
 };
 
 const setUserDetails = (payload) => {
-  console.log(payload);
   return {
     type: authTypes.SET_USER_DETAILS,
     payload: payload,
@@ -24,7 +23,6 @@ const login = (payload, history) => {
     if (response?.data?.success) {
       toast.success(response?.data?.message);
 
-      console.log(response.data.data);
       localStorage.setItem(
         Constant.ECOM_USER_DETAILS,
         JSON.stringify(response.data.data)
@@ -50,7 +48,6 @@ const register = (payload, history) => {
     if (response.statusText === "OK") {
       toast.success(response?.data?.message);
 
-      console.log(response.data.data);
       localStorage.setItem(
         Constant.ECOM_USER_DETAILS,
         JSON.stringify(response.data.data)
