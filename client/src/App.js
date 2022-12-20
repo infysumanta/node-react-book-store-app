@@ -12,6 +12,8 @@ import UserListPage from "./pages/AdminPage/User/UserListPage";
 import ProductListPage from "./pages/AdminPage/Product/ProductListPage";
 import ProductEntryPage from "./pages/AdminPage/Product/ProductEntryPage";
 import ProductDetailsPage from "./pages/AdminPage/Product/ProductDetailsPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
+import CartPage from "./pages/CartPage/CartPage";
 const App = () => {
   return (
     <>
@@ -19,6 +21,16 @@ const App = () => {
         <Route path="/" exact>
           <FrontendLayout>
             <HomePage />
+          </FrontendLayout>
+        </Route>
+        <Route path="/search" exact>
+          <FrontendLayout>
+            <SearchPage />
+          </FrontendLayout>
+        </Route>
+        <Route path="/cart" exact>
+          <FrontendLayout>
+            <CartPage />
           </FrontendLayout>
         </Route>
         <Route path="/login" exact>
@@ -31,12 +43,12 @@ const App = () => {
             <RegisterPage />
           </FrontendLayout>
         </Route>
+
         <Route path="/admin" exact>
           <AdminPanel>
             <AdminPage />
           </AdminPanel>
         </Route>
-
         <Route path="/admin/products" exact>
           <AdminPanel>
             <ProductListPage />
