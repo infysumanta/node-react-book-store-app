@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   Container,
@@ -8,8 +8,15 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 const Header = () => {
+  const [search, setSearch] = useState("");
+  const history = useHistory();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    history.push(`/search?q=${search}`);
+  };
   return (
     <header>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -35,26 +42,31 @@ const Header = () => {
               </NavDropdown>
             </Nav>
 
-            <div className="d-flex flex-grow-1">
+            <Form className="d-flex flex-grow-1" onSubmit={handleSearch}>
               <InputGroup>
                 <Form.Control
                   placeholder="Search.."
                   aria-label="Search.."
+                  name="q"
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
                   aria-describedby="basic-addon2"
                 />
-                <Button variant="outline-secondary" id="button-addon2">
-                  Button
+                <Button variant="outline-secondary" type="submit">
+                  Search
                 </Button>
               </InputGroup>
-            </div>
+            </Form>
             <Nav className="justify-content-end pe-3">
-              <Nav.Link href="#action1">
+              <Nav.Link to="/wishlist" as={Link}>
                 <Button variant="outline-success">Wishlist</Button>
               </Nav.Link>
-              <Nav.Link href="#action1">
+              <Nav.Link to="/cart" as={Link}>
                 <Button variant="outline-success">Cart</Button>
               </Nav.Link>
-              <Nav.Link href="#action1">
+              <Nav.Link to="/login" as={Link}>
                 <Button variant="outline-success">Login</Button>
               </Nav.Link>
             </Nav>

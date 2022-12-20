@@ -15,7 +15,7 @@ const SearchPage = () => {
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <strong>Price</strong>
-                <ul class="list-unstyled">
+                <ul className="list-unstyled">
                   <li>
                     <Form.Check type="radio" name="price" label="< ₹99.00" />
                   </li>
@@ -47,7 +47,7 @@ const SearchPage = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <strong>Discount</strong>
-                <ul class="list-unstyled">
+                <ul className="list-unstyled">
                   <li>
                     <Form.Check
                       type="radio"
@@ -87,7 +87,7 @@ const SearchPage = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <strong>Ratings</strong>
-                <ul class="list-unstyled">
+                <ul className="list-unstyled">
                   <li>
                     <Form.Check
                       type="radio"

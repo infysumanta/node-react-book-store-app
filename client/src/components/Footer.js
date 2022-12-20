@@ -8,7 +8,7 @@ const Footer = () => {
         <Row>
           <Col lg={3} md={4} sm={6} xs={12}>
             <strong>About:</strong>
-            <ul class="list-unstyled">
+            <ul className="list-unstyled">
               <li>Contact Us</li>
               <li>About Us</li>
               <li>Stories</li>
@@ -18,7 +18,7 @@ const Footer = () => {
           </Col>
           <Col lg={3} md={4} sm={6} xs={12}>
             <strong>Help: </strong>
-            <ul class="list-unstyled">
+            <ul className="list-unstyled">
               <li>Payments</li>
               <li>Shipping</li>
               <li>Cancellation & Returns</li>
@@ -28,7 +28,7 @@ const Footer = () => {
           </Col>
           <Col lg={3} md={4} sm={6} xs={12}>
             <strong>Connect with Us:</strong>
-            <ul class="list-unstyled">
+            <ul className="list-unstyled">
               <li>Facebook</li>
               <li>Twitter</li>
               <li>Youtube</li>
